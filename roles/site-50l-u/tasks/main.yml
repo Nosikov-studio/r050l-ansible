@@ -1,0 +1,29 @@
+---
+    -  name: Update apt cache
+       apt:
+        update_cache: yes
+
+
+
+    - name: Recursively remove directory
+      file:
+        path: /var/www/client/
+        state: absent
+
+    - name: Удалить файл конфигурации truruky
+      ansible.builtin.file:
+        path: /etc/nginx/sites-available/truruky
+        state: absent
+
+    - name: Удалить файл конфигурации truruky
+      ansible.builtin.file:
+        path: /etc/nginx/sites-enabled/truruky
+        state: absent
+
+
+    - name: Reload nginx
+      service:
+        name: nginx
+        state: reloaded
+
+

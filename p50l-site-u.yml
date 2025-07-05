@@ -1,0 +1,8 @@
+#удаление сайта!!!
+---
+- name: deInstall my site
+  become: yes
+  hosts: all
+
+  roles:
+    - site-50l-u
